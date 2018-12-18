@@ -1,13 +1,12 @@
-
-import data from "./index";
-import schema from "./schema.json";
-import {getGroups, chooseRandomWithWeight, debugGen} from "./utils";
+const data = require('./index')
+const schema = require('./schema.json')
+const {getGroups, chooseRandomWithWeight, debugGen} = require('./utils')
 
 function numberOrNull(v) {
   return typeof v === "number" ? v|0 : null;
 }
 
-export function generate({
+function generate({
   race,
   subrace,
   classorprof,
@@ -111,7 +110,7 @@ export function generate({
   return npc;
 }
 
-export function printDebugGen(npc) {
+function printDebugGen(npc) {
   const debugNode = npc.debug;
   if (debugNode) {
     let depth = 0;
@@ -133,3 +132,5 @@ export function printDebugGen(npc) {
     console.log(lines.join("\n"))
   }
 }
+
+module.exports = {generate, printDebugGen}

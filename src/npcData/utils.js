@@ -1,6 +1,6 @@
-export const debugGen = process.env.NODE_ENV === "development";
+const debugGen = process.env.NODE_ENV === "development";
 
-export function chooseRandomWithWeight(arr, totalWeight) {
+function chooseRandomWithWeight(arr, totalWeight) {
   var rnum = ((Math.random() * totalWeight) + 1) | 0;
   var i = 0;
   while(rnum > 0) {
@@ -9,7 +9,7 @@ export function chooseRandomWithWeight(arr, totalWeight) {
   return arr[i - 1].v;
 }
 
-export function getGroups(val) {
+function getGroups(val) {
   if (typeof val !== "string" || val.length === 0) {
     return "";
   }
@@ -231,3 +231,5 @@ const operators = [
     };
   }}
 ];
+
+module.exports = {debugGen, chooseRandomWithWeight, getGroups}
