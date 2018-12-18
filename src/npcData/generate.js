@@ -5,6 +5,14 @@ const {getGroups, chooseRandomWithWeight, debugGen} = require('./utils')
 function numberOrNull(v) {
   return typeof v === "number" ? v|0 : null;
 }
+const lookup = (table, name) => {
+  if (typeof name !== 'string') return name
+  if (!table) return name
+  name = name.toLowerCase()
+  const match = table.options.find(x => `${x.table}`.toLowerCase() === name || `${x.name}`.toLowerCase() === name)
+  if (match) return table.options.indexOf(match)
+  throw new Error(`Cannot find name: ${name}`)
+}
 
 function generate({
   race,
@@ -16,6 +24,11 @@ function generate({
   plothook,
   gender,
 } = {}) {
+  subrace = lookup(data.tables['race' + race], subrace)
+  race = lookup(data.tables.race, race)
+  classorprof = classorprof === 'class' ? 0 : classorprof === 'profession' ? 1 : classorprof
+  gender = lookup(data.tables.gender, gender)
+
   const options = {
     race: numberOrNull(race),
     subrace: numberOrNull(subrace),
