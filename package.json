@@ -2,29 +2,11 @@
   "name": "dnd-generator",
   "version": "0.2.0",
   "private": true,
-  "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "git+https://github.com/Cellule/dnd-generator-react-scripts.git"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "main": "src/npcData/index.js",
   "devDependencies": {
-    "bootstrap": "^3.3.7",
-    "prop-types": "^15.6.2",
-    "react-bootstrap": "^0.32.4"
+    "jasmine": "^3.3.1"
+  },
+  "dependencies": {
+    "case": "^1.6.0"
   }
 }
